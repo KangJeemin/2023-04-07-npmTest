@@ -1,0 +1,23 @@
+{
+  "name": "2023-04-07-npmtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KangJeemin/2023-04-07-npmTest.git"
+  },
+  "author": "KangJeemin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KangJeemin/2023-04-07-npmTest/issues"
+  },
+  "homepage": "https://github.com/KangJeemin/2023-04-07-npmTest#readme",
+  "type": "module",
+  "dependencies": {
+    "time-stamp": "^2.2.0"
+  }
+}
