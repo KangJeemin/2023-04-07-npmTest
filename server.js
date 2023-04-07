@@ -1,6 +1,6 @@
 import http from 'http'
 import fs from 'fs';
-import cs from './currentTime.js'
+// import cs from './currentTime.js'
 
 
 class Server {
@@ -18,28 +18,16 @@ class Server {
   }
   start(){
     this.server = http.createServer((req,res)=>{
-      res.writeHead(200,{ 'Content-Type': 'text/html'});
-      res.end(`<!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-      </head>
-      <body>
-        <div id="jeemin"></div>
-      <script>
-      const root = document.getElementById('jeemin');
-      root.style.display="flex";
-      root.style.justifyContent="center";
-      root.style.alignContent="center"
-      root.style.height="200px";
-      root.style.width="200px"
-      root.innerText=${cs};
-      </script>
-      </body>
-      </html>`);
+      if(req.method=="GET" && req.url=="/"){
+        res.writeHead(200,{ 'Content-Type': 'text/plain; charset=utf8'});
+        res.end(`아무것도 없는 페이지`)
+    }
+      if(req.method=="GET" && req.url=="/index.js"){
+        res.writeHead(200,{ 'Content-Type': 'text/html'});
+        fs.readFile('./index.html',(err,data)=>{
+        res.end(data);
+      })
+      }
     })
     this.server.listen(this._port,()=>{
       console.log("서버가동")
