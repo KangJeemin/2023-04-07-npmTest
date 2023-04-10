@@ -1,9 +1,12 @@
-import timestamp from 'time-stamp'
 
+let time
 function currentTime(){
-let time;
 let today = new Date();
+let year = today.getFullYear();
+let month = today.getMonth()+1;
+let date = today.getDate();
 let day = today.getDay();
+let seconds = today.getSeconds();
 let h = today.getHours() < 12 ? "오전" : "오후";
 let realday= ""
 switch(day) {
@@ -32,9 +35,18 @@ switch(day) {
     realday="존재하지 않는 요일입니다."
     break
 }
-time= timestamp('YYYY년 MM월 DD일 '+h+' HH시 mm분 ss초 '+realday);
+
+  time= seconds
+   return time;
   };
 
+function timeout() {
+  setInterval(()=>{
+    currentTime()
+    return time;
+  },1000)
+  return time;
+}
 
-console.log(time)
-export default currentTime();
+timeout()
+  export default timeout();
