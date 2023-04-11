@@ -46,4 +46,4 @@ function timeout() {
   },1000)
 }
 
-  export default timeout();
+  export default timeout;

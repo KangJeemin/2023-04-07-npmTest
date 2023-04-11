@@ -1,6 +1,6 @@
 import http from 'http'
 import fs from 'fs';
-import time from './currentTime1.js'
+import time from './currentTime2.js'
 
 
 class Server {
@@ -28,7 +28,7 @@ class Server {
         res.writeHead(200,{ 'Content-Type': 'text/html'});
         setInterval(() => {
           res.write(`
-          <div>${time}</div>
+          <div>${time()}</div>
           `
         )
         }, 1000);
