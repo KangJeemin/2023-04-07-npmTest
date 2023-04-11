@@ -1,6 +1,6 @@
 import http from 'http'
 import fs from 'fs';
-import time from './currentTime.js'
+import time from './currentTime1.js'
 
 
 class Server {
@@ -24,20 +24,12 @@ class Server {
         res.end(`아무것도 없는 페이지`)
     }
       if(req.method=="GET" && req.url=="/time"){
+        
         res.writeHead(200,{ 'Content-Type': 'text/html'});
         setInterval(() => {
-          res.write(`<!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-        </head>
-        <body>
+          res.write(`
           <div>${time}</div>
-        </body>
-        </html>`
+          `
         )
         }, 1000);
           
